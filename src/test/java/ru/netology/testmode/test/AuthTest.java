@@ -35,7 +35,6 @@ class AuthTest {
     @DisplayName("Should get error message if login with not registered user")
     void shouldGetErrorIfNotRegisteredUser() {
         var unRegisteredUser = getUser("active");
-        $(".form");
         $("[data-test-id=login] input").setValue(unRegisteredUser.getLogin());
         $("[data-test-id=password] input").setValue(unRegisteredUser.getPassword());
         $("[data-test-id='action-login']").click();
@@ -47,7 +46,6 @@ class AuthTest {
     @DisplayName("Should get error message if login with blocked registered user")
     void shouldGetErrorIfBlockedUser() {
         var blockedUser = getRegisteredUser("blocked");
-        $(".form");
         $("[data-test-id=login] input").setValue(blockedUser.getLogin());
         $("[data-test-id=password] input").setValue(blockedUser.getPassword());
         $("[data-test-id='action-login']").click();
@@ -60,7 +58,6 @@ class AuthTest {
     void shouldGetErrorIfWrongLogin() {
         var registeredUser = getRegisteredUser("active");
         var invalidLogin = getRandomLogin();
-        $(".form");
         $("[data-test-id=login] input").setValue(invalidLogin);
         $("[data-test-id=password] input").setValue(registeredUser.getPassword());
         $("[data-test-id='action-login']").click();
@@ -73,7 +70,6 @@ class AuthTest {
     void shouldGetErrorIfWrongPassword() {
         var registeredUser = getRegisteredUser("active");
         var invalidPassword = getRandomPassword();
-        $(".form");
         $("[data-test-id=login] input").setValue(registeredUser.getLogin());
         $("[data-test-id=password] input").setValue(invalidPassword);
         $("[data-test-id='action-login']").click();
